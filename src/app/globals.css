@@ -1,0 +1,256 @@
+@import "tailwindcss";
+
+@theme {
+  --color-teal-50: #f0fdfa;
+  --color-teal-100: #ccfbf1;
+  --color-teal-200: #99f6e4;
+  --color-teal-300: #5eead4;
+  --color-teal-400: #2dd4bf;
+  --color-teal-500: #14b8a6;
+  --color-teal-600: #0d9488;
+  --color-teal-700: #0f766e;
+  --color-teal-800: #115e59;
+  --color-teal-900: #134e4a;
+  --color-teal-950: #042f2e;
+
+  --color-cyan-50: #ecfeff;
+  --color-cyan-100: #cffafe;
+  --color-cyan-200: #a5f3fc;
+  --color-cyan-300: #67e8f9;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-cyan-600: #0891b2;
+  --color-cyan-700: #0e7490;
+  --color-cyan-800: #155e75;
+  --color-cyan-900: #164e63;
+  --color-cyan-950: #083344;
+
+  --color-gray-50: #f9fafb;
+  --color-gray-100: #f3f4f6;
+  --color-gray-200: #e5e7eb;
+  --color-gray-300: #d1d5db;
+  --color-gray-400: #9ca3af;
+  --color-gray-500: #6b7280;
+  --color-gray-600: #4b5563;
+  --color-gray-700: #374151;
+  --color-gray-800: #1f2937;
+  --color-gray-900: #111827;
+  --color-gray-950: #030712;
+
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Primary colors for the app */
+  --color-primary: var(--color-teal-500);
+  --color-primary-foreground: var(--color-white);
+  --color-secondary: var(--color-gray-800);
+  --color-secondary-foreground: var(--color-gray-100);
+
+  /* Background colors */
+  --color-background: var(--color-black);
+  --color-foreground: var(--color-white);
+  --color-card: var(--color-gray-900);
+  --color-card-foreground: var(--color-white);
+
+  /* Border and input colors */
+  --color-border: var(--color-gray-700);
+  --color-input: var(--color-gray-800);
+  --color-ring: var(--color-teal-500);
+
+  /* Muted colors */
+  --color-muted: var(--color-gray-800);
+  --color-muted-foreground: var(--color-gray-400);
+
+  /* Accent colors */
+  --color-accent: var(--color-gray-800);
+  --color-accent-foreground: var(--color-white);
+
+  /* Destructive colors */
+  --color-destructive: #ef4444;
+  --color-destructive-foreground: var(--color-white);
+
+  /* Popover colors */
+  --color-popover: var(--color-gray-900);
+  --color-popover-foreground: var(--color-white);
+
+  /* Border radius */
+  --radius: 0.75rem;
+
+  /* Font families */
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  --font-mono: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+
+  /* Animations */
+  --animate-spin: spin 1s linear infinite;
+  --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+  --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --animate-bounce: bounce 1s infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ping {
+  75%,
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+/* Base styles */
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-sans);
+}
+
+/* Force dark mode */
+html {
+  color-scheme: dark;
+}
+
+/* Custom scrollbar with teal colors */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-teal-500);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-teal-700);
+}
+
+/* Smooth animations */
+* {
+  transition-property: color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow,
+    transform, filter, backdrop-filter;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Glow effects for teal elements */
+.glow-teal {
+  box-shadow: 0 0 20px var(--color-teal-500);
+}
+
+.glow-cyan {
+  box-shadow: 0 0 20px var(--color-cyan-400);
+}
+
+/* Custom gradient utilities */
+.gradient-teal-cyan {
+  background: linear-gradient(to right, var(--color-teal-400), var(--color-cyan-400));
+}
+
+.gradient-white-teal-cyan {
+  background: linear-gradient(to right, var(--color-white), var(--color-teal-200), var(--color-cyan-400));
+}
+
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Backdrop blur utilities */
+.backdrop-blur-glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Button variants */
+.btn-primary {
+  background: linear-gradient(to right, var(--color-teal-600), var(--color-cyan-600));
+  color: var(--color-white);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: all 150ms ease;
+  box-shadow: 0 25px 50px -12px var(--color-teal-500);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(to right, var(--color-teal-700), var(--color-cyan-700));
+  transform: scale(1.05);
+}
+
+.btn-outline {
+  border: 2px solid var(--color-teal-400);
+  color: var(--color-teal-400);
+  background: transparent;
+  backdrop-filter: blur(4px);
+  border-radius: var(--radius);
+  padding: 0.5rem 1rem;
+  font-weight: bold;
+  transition: all 150ms ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-teal-400);
+  color: var(--color-black);
+}
+
+/* Card styles */
+.card-glass {
+  background: linear-gradient(135deg, var(--color-gray-900), var(--color-gray-800));
+  border: 1px solid var(--color-gray-700);
+  backdrop-filter: blur(16px);
+  border-radius: var(--radius);
+  transition: all 300ms ease;
+}
+
+.card-glass:hover {
+  border-color: var(--color-teal-500);
+  box-shadow: 0 25px 50px -12px var(--color-teal-500);
+  transform: scale(1.05);
+}
+
+/* Text utilities */
+.text-gradient-teal {
+  background: linear-gradient(to right, var(--color-teal-400), var(--color-cyan-400));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.text-gradient-white-teal {
+  background: linear-gradient(to right, var(--color-white), var(--color-teal-200), var(--color-cyan-400));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
