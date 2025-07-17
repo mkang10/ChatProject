@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { ButtonLoading } from "./button-loading"
 import { cn } from "@/lib/utils"
 import type { ReactNode } from "react"
 
@@ -10,6 +11,10 @@ interface GradientButtonProps {
   size?: "sm" | "md" | "lg"
   className?: string
   onClick?: () => void
+  loading?: boolean
+  disabled?: boolean
+    type?: 'button' | 'submit' | 'reset';
+
 }
 
 export function GradientButton({
@@ -18,8 +23,11 @@ export function GradientButton({
   size = "md",
   className,
   onClick,
+  loading = false,
+  disabled = false,
 }: GradientButtonProps) {
-  const baseClasses = "font-semibold transition-all duration-300 transform hover:scale-105"
+  const baseClasses =
+    "font-semibold transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
 
   const variants = {
     primary:
@@ -36,8 +44,12 @@ export function GradientButton({
   }
 
   return (
-    <Button className={cn(baseClasses, variants[variant], sizes[size], className)} onClick={onClick}>
-      {children}
+    <Button
+      className={cn(baseClasses, variants[variant], sizes[size], className)}
+      onClick={onClick}
+      disabled={disabled || loading}
+    >
+      {loading ? <ButtonLoading /> : children}
     </Button>
   )
 }
