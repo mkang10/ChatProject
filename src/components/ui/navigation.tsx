@@ -1,3 +1,6 @@
+"use client"
+
+import Link from "next/link"
 import { MessageCircle } from "lucide-react"
 import { GradientButton } from "./gradient-button"
 
@@ -13,26 +16,33 @@ export function Navigation() {
         </span>
       </div>
       <div className="hidden md:flex space-x-8">
-        <a href="#" className="hover:text-teal-400 transition-colors">
+        <Link href="/" className="hover:text-teal-400 transition-colors">
           Home
-        </a>
-        <a href="#" className="hover:text-teal-400 transition-colors">
+        </Link>
+         <Link href="/about" className="hover:text-teal-400 transition-colors">
+          about
+        </Link>
+        <Link href="/features" className="hover:text-teal-400 transition-colors">
           Features
-        </a>
-        <a href="#" className="hover:text-teal-400 transition-colors">
+        </Link>
+        <Link href="/pricing" className="hover:text-teal-400 transition-colors">
           Pricing
-        </a>
-        <a href="#" className="hover:text-teal-400 transition-colors">
+        </Link>
+        <Link href="/support" className="hover:text-teal-400 transition-colors">
           Support
-        </a>
+        </Link>
       </div>
       <div className="flex space-x-3">
-        <GradientButton variant="outline" size="sm">
-          Sign In
-        </GradientButton>
-        <GradientButton variant="primary" size="sm">
-          Try Free
-        </GradientButton>
+        <Link href="/auth/login">
+          <GradientButton variant="outline" size="sm">
+            Sign In
+          </GradientButton>
+        </Link>
+        <Link href="/auth/register">
+          <GradientButton variant="primary" size="sm">
+            Try Free
+          </GradientButton>
+        </Link>
       </div>
     </nav>
   )

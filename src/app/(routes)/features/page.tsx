@@ -151,24 +151,31 @@ export default function FeaturesPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
-      {/* 3D Background */}
-      <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 10], fov: 75 }}>
-          <EnhancedScene />
-          <OrbitControls
-            enableZoom={false}
-            enablePan={false}
-            autoRotate
-            autoRotateSpeed={0.1}
-            maxPolarAngle={Math.PI / 1.8}
-            minPolarAngle={Math.PI / 2.2}
-          />
-        </Canvas>
-      </div>
+    
+   <div className="min-h-screen bg-gradient-to-br from-gray-900 via-black to-gray-900 text-white relative overflow-hidden">
+  {/* 3D Background */}
+  <div className="absolute inset-0 z-0 pointer-events-none">
+    <Canvas
+      camera={{ position: [0, 0, 10], fov: 75 }}
+      style={{
+        background: 'linear-gradient(to bottom right, #111827, #000000)', // fallback nền đen nếu có lỗi
+      }}
+    >
+      <EnhancedScene />
+      <OrbitControls
+        enableZoom={false}
+        enablePan={false}
+        autoRotate
+        autoRotateSpeed={0.1}
+        maxPolarAngle={Math.PI / 1.8}
+        minPolarAngle={Math.PI / 2.2}
+      />
+    </Canvas>
+  </div>
+
 
       {/* Gradient Overlays */}
-      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 z-5"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40 z-10"></div>
 
       {/* Content */}
       <div className="relative z-10 min-h-screen flex flex-col">
