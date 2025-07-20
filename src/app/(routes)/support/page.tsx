@@ -132,7 +132,7 @@ export default function SupportPage() {
     },
     {
       category: "security",
-      question: "Can ChatFlow see my messages?",
+      question: "Can ChatKang see my messages?",
       answer:
         "No. With end-to-end encryption, your messages are encrypted on your device before sending. We cannot decrypt or read your messages, even if we wanted to.",
     },
@@ -142,7 +142,7 @@ export default function SupportPage() {
     {
       icon: Book,
       title: "User Guide",
-      description: "Complete guide to using ChatFlow",
+      description: "Complete guide to using ChatKang",
       link: "#",
     },
     {
@@ -214,7 +214,7 @@ export default function SupportPage() {
 
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
               Get the support you need, when you need it. Our expert team is available 24/7 to help you make the most of
-              ChatFlow.
+              ChatKang.
             </p>
 
             {/* Search Bar */}
@@ -467,7 +467,7 @@ export default function SupportPage() {
                 <h3 className="text-2xl font-bold">All Systems Operational</h3>
               </div>
               <p className="text-gray-300 mb-6">
-                All ChatFlow services are running smoothly. Check our status page for real-time updates.
+                All ChatKang services are running smoothly. Check our status page for real-time updates.
               </p>
               <GradientButton variant="outline">
                 View Status Page
@@ -484,10 +484,10 @@ export default function SupportPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-xl flex items-center justify-center">
                 <MessageCircle className="h-6 w-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gradient-teal">ChatFlow</span>
+              <span className="text-2xl font-bold text-gradient-teal">ChatKang</span>
             </div>
             <p className="text-gray-400 mb-4 text-lg">Connecting the world, sharing emotions</p>
-            <p className="text-gray-500">&copy; 2024 ChatFlow. All rights reserved.</p>
+            <p className="text-gray-500">&copy; 2025 ChatKang. All rights reserved.</p>
           </div>
         </footer>
       </div>

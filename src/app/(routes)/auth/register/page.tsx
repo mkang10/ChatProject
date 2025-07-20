@@ -111,7 +111,7 @@ export default function SignupPage() {
               <div className="w-16 h-16 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg shadow-teal-500/25">
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
-              <h1 className="text-3xl font-bold text-gradient-teal mb-2">Join ChatFlow</h1>
+              <h1 className="text-3xl font-bold text-gradient-teal mb-2">Join ChatKang</h1>
               <p className="text-gray-400">Create your account to get started</p>
             </div>
 
@@ -314,7 +314,7 @@ export default function SignupPage() {
 
           {/* Footer */}
           <div className="text-center mt-8">
-            <p className="text-gray-500 text-sm">&copy; 2024 ChatFlow. All rights reserved.</p>
+            <p className="text-gray-500 text-sm">&copy; 2025 ChatKang. All rights reserved.</p>
           </div>
         </div>
       </div>

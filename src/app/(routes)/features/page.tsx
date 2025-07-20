@@ -197,7 +197,7 @@ export default function FeaturesPage() {
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-4xl mx-auto leading-relaxed">
-              Discover the comprehensive suite of features that make ChatFlow the most advanced communication platform
+              Discover the comprehensive suite of features that make ChatKang the most advanced communication platform
               in the digital universe.
             </p>
           </div>
@@ -265,7 +265,7 @@ export default function FeaturesPage() {
                 Ready to Experience These Features?
               </h2>
               <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-                Join millions of users who trust ChatFlow for their daily communication needs.
+                Join millions of users who trust ChatKang for their daily communication needs.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <GradientButton variant="primary" size="lg">
@@ -287,10 +287,10 @@ export default function FeaturesPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-xl flex items-center justify-center">
                 <MessageCircle className="h-6 w-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gradient-teal">ChatFlow</span>
+              <span className="text-2xl font-bold text-gradient-teal">ChatKang</span>
             </div>
             <p className="text-gray-400 mb-4 text-lg">Connecting the world, sharing emotions</p>
-            <p className="text-gray-500">&copy; 2024 ChatFlow. All rights reserved.</p>
+            <p className="text-gray-500">&copy; 2025 ChatKang. All rights reserved.</p>
           </div>
         </footer>
       </div>

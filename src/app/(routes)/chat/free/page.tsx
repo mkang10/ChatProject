@@ -1,8 +1,8 @@
 "use client"
 
-import { useState, Suspense } from "react"
+import { useState } from "react"
 import { Canvas } from "@react-three/fiber"
-import { OrbitControls, Environment } from "@react-three/drei"
+import { OrbitControls  } from "@react-three/drei"
 import {
   Send,
   Paperclip,
@@ -16,41 +16,20 @@ import {
   Smile,
   Mic,
   MessageCircle,
+
+
 } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { GradientButton } from "@/components/ui/gradient-button"
 import { Progress } from "@/components/ui/progress"
 import { Navigation } from "@/components/ui/navigation"
 import { EnhancedScene } from "@/components/ui/3d/enhanced-scene"
+import { Chat3DPreview } from "@/components/chat/free/Chat3DPreview"
+import { SettingsDialog } from "@/components/chat/free/SettingsDialog"
+import { SearchDialog } from "@/components/chat/free/SearchDialog"
+import { NewChatDialog } from "@/components/chat/free/NewChatDialog"
+import { ChatOptionsDialog } from "@/components/chat/free/ChatOption"
 
-// 3D Geometric Shape Component
-function GeometricShape({ type = "torus" }: { type?: string }) {
-  return (
-    <mesh rotation={[0.5, 0.5, 0]}>
-      {type === "torus" && <torusGeometry args={[1, 0.4, 16, 100]} />}
-      {type === "sphere" && <sphereGeometry args={[1.2, 32, 32]} />}
-      {type === "box" && <boxGeometry args={[1.5, 1.5, 1.5]} />}
-      <meshStandardMaterial color="#14b8a6" metalness={0.8} roughness={0.2} envMapIntensity={1} />
-    </mesh>
-  )
-}
-
-// 3D Preview Component
-function Chat3DPreview({ shape = "torus" }: { shape?: string }) {
-  return (
-    <div className="w-12 h-12 rounded-xl overflow-hidden bg-gray-800/50 border border-gray-700/50 backdrop-blur-sm">
-      <Canvas camera={{ position: [0, 0, 4], fov: 45 }}>
-        <Suspense fallback={null}>
-          <ambientLight intensity={0.4} />
-          <directionalLight position={[10, 10, 5]} intensity={1} />
-          <GeometricShape type={shape} />
-          <Environment preset="studio" />
-          <OrbitControls enableZoom={false} enablePan={false} autoRotate autoRotateSpeed={2} />
-        </Suspense>
-      </Canvas>
-    </div>
-  )
-}
 
 export default function FreeChatPage() {
   const [message, setMessage] = useState("")
@@ -82,6 +61,13 @@ export default function FreeChatPage() {
   ])
   const [dailyMessages, setDailyMessages] = useState(87)
   const dailyLimit = 100
+
+  // Dialog states
+  const [settingsOpen, setSettingsOpen] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false)
+  const [newChatOpen, setNewChatOpen] = useState(false)
+  const [chatOptionsOpen, setChatOptionsOpen] = useState(false)
+  const [selectedChatId, setSelectedChatId] = useState<number | null>(null)
 
   const sendMessage = () => {
     if (message.trim() && dailyMessages < dailyLimit) {
@@ -171,7 +157,10 @@ export default function FreeChatPage() {
                   <span className="ml-auto text-xs text-teal-400">{dailyMessages}</span>
                 </button>
 
-                <button className="w-full flex items-center space-x-3 p-4 card-glass rounded-2xl text-left hover:border-teal-500/30 transition-all">
+                <button
+                  onClick={() => setSearchOpen(true)}
+                  className="w-full flex items-center space-x-3 p-4 card-glass rounded-2xl text-left hover:border-teal-500/30 transition-all"
+                >
                   <Search className="w-5 h-5 text-gray-400" />
                   <span className="text-sm text-gray-300">Search</span>
                   <span className="ml-auto text-xs text-gray-500">⌘F</span>
@@ -182,7 +171,10 @@ export default function FreeChatPage() {
                   <span className="text-sm text-gray-400">Premium Features</span>
                 </button>
 
-                <button className="w-full flex items-center space-x-3 p-4 card-glass rounded-2xl text-left hover:border-teal-500/30 transition-all">
+                <button
+                  onClick={() => setSettingsOpen(true)}
+                  className="w-full flex items-center space-x-3 p-4 card-glass rounded-2xl text-left hover:border-teal-500/30 transition-all"
+                >
                   <Settings className="w-5 h-5 text-gray-400" />
                   <span className="text-sm text-gray-300">Settings</span>
                 </button>
@@ -192,7 +184,10 @@ export default function FreeChatPage() {
               <div className="mt-8">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-sm font-medium text-gray-400">Recent Chats</h3>
-                  <button className="text-gray-400 hover:text-teal-400 transition-colors">
+                  <button
+                    onClick={() => setNewChatOpen(true)}
+                    className="text-gray-400 hover:text-teal-400 transition-colors"
+                  >
                     <Plus className="w-4 h-4" />
                   </button>
                 </div>
@@ -322,7 +317,13 @@ export default function FreeChatPage() {
               <h3 className="font-bold text-white text-lg">Chat History</h3>
               <div className="flex items-center space-x-2">
                 <span className="text-xs text-teal-400 bg-teal-500/20 px-2 py-1 rounded-full">24/100</span>
-                <button className="text-gray-400 hover:text-white transition-colors">
+                <button
+                  onClick={() => {
+                    setSelectedChatId(1)
+                    setChatOptionsOpen(true)
+                  }}
+                  className="text-gray-400 hover:text-white transition-colors"
+                >
                   <MoreHorizontal className="w-4 h-4" />
                 </button>
               </div>
@@ -333,6 +334,10 @@ export default function FreeChatPage() {
                 <div
                   key={chat.id}
                   className="card-glass p-4 rounded-2xl hover:border-teal-500/30 transition-all cursor-pointer"
+                  onClick={() => {
+                    setSelectedChatId(chat.id)
+                    setChatOptionsOpen(true)
+                  }}
                 >
                   <div className="flex items-start space-x-3">
                     <Chat3DPreview shape={chat.shape} />
@@ -352,13 +357,19 @@ export default function FreeChatPage() {
             </div>
 
             {/* New Chat Button */}
-            <GradientButton variant="primary" className="w-full mt-6">
+            <GradientButton variant="primary" className="w-full mt-6" onClick={() => setNewChatOpen(true)}>
               <Plus className="w-5 h-5 mr-2" />
               New Chat
             </GradientButton>
           </div>
         </div>
       </div>
+
+      {/* Dialogs */}
+      <SettingsDialog open={settingsOpen} onOpenChange={setSettingsOpen} />
+      <SearchDialog open={searchOpen} onOpenChange={setSearchOpen} />
+      <NewChatDialog open={newChatOpen} onOpenChange={setNewChatOpen} />
+      <ChatOptionsDialog open={chatOptionsOpen} onOpenChange={setChatOptionsOpen} chatId={selectedChatId || 0} />
     </div>
   )
 }

@@ -54,28 +54,28 @@ export default function AboutPage() {
 
   const team = [
     {
-      name: "Alex Chen",
+      name: "Mason Kang",
       role: "CEO & Co-Founder",
       bio: "Former VP of Engineering at Meta, passionate about connecting people through technology.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://res.cloudinary.com/dvbbfcxdz/image/upload/v1748496558/Kang_oc9fyj.png",
     },
     {
-      name: "Sarah Johnson",
+      name: "Mason Kang",
       role: "CTO & Co-Founder",
       bio: "Ex-Google senior engineer with 15+ years in distributed systems and security.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://res.cloudinary.com/dvbbfcxdz/image/upload/v1748496558/Kang_oc9fyj.png",
     },
     {
-      name: "Marcus Rodriguez",
+      name: "Mason Kang",
       role: "Head of Design",
       bio: "Award-winning designer who previously led design teams at Apple and Airbnb.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://res.cloudinary.com/dvbbfcxdz/image/upload/v1748496558/Kang_oc9fyj.png",
     },
     {
-      name: "Emily Zhang",
+      name: "Mason Kang",
       role: "Head of Security",
       bio: "Cybersecurity expert with background in cryptography and privacy-preserving technologies.",
-      image: "/placeholder.svg?height=300&width=300",
+      image: "https://res.cloudinary.com/dvbbfcxdz/image/upload/v1748496558/Kang_oc9fyj.png",
     },
   ]
 
@@ -83,7 +83,7 @@ export default function AboutPage() {
     {
       year: "2020",
       title: "The Beginning",
-      description: "ChatFlow was founded with a vision to revolutionize digital communication.",
+      description: "ChatKang was founded with a vision to revolutionize digital communication.",
     },
     {
       year: "2021",
@@ -257,7 +257,7 @@ export default function AboutPage() {
             <div className="text-center mb-16">
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gradient-teal">Meet Our Team</h2>
               <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-                The passionate individuals behind ChatFlow success.
+                The passionate individuals behind ChatKang success.
               </p>
             </div>
 
@@ -267,7 +267,13 @@ export default function AboutPage() {
                   key={index}
                   className="card-glass p-6 text-center hover:border-teal-500/50 transition-all duration-300"
                 >
-                  <div className="w-24 h-24 bg-gradient-to-r from-teal-600 to-cyan-600 rounded-full mx-auto mb-6 shadow-lg shadow-teal-500/25"></div>
+                  <div className="w-24 h-24 rounded-full overflow-hidden mx-auto mb-6 shadow-lg shadow-teal-500/25">
+                    <img
+                      src={member.image}
+                      alt={member.name}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
                   <h3 className="text-xl font-bold mb-2">{member.name}</h3>
                   <p className="text-teal-400 mb-4">{member.role}</p>
                   <p className="text-gray-300 text-sm leading-relaxed">{member.bio}</p>
@@ -276,6 +282,7 @@ export default function AboutPage() {
             </div>
           </div>
         </div>
+
 
         {/* Contact Section */}
         <div className="px-6 py-24">
@@ -289,17 +296,17 @@ export default function AboutPage() {
               <div className="card-glass p-8 text-center">
                 <Mail className="h-12 w-12 text-teal-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">Email Us</h3>
-                <p className="text-gray-300">hello@chatflow.com</p>
+                <p className="text-gray-300">ChatKang@gmail.com</p>
               </div>
               <div className="card-glass p-8 text-center">
                 <Phone className="h-12 w-12 text-teal-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">Call Us</h3>
-                <p className="text-gray-300">+1 (555) 123-4567</p>
+                <p className="text-gray-300">+84 (012) 123-4567</p>
               </div>
               <div className="card-glass p-8 text-center">
                 <MapPin className="h-12 w-12 text-teal-400 mx-auto mb-4" />
                 <h3 className="text-xl font-bold mb-2">Visit Us</h3>
-                <p className="text-gray-300">San Francisco, CA</p>
+                <p className="text-gray-300">HCM , VIET NAM</p>
               </div>
             </div>
           </div>
@@ -311,7 +318,7 @@ export default function AboutPage() {
             <div className="backdrop-blur-glass rounded-3xl p-16 border border-teal-500/20">
               <h2 className="text-4xl md:text-5xl font-bold mb-8 text-gradient-teal">Join Our Mission</h2>
               <p className="text-xl text-gray-300 mb-12 leading-relaxed">
-                Be part of the future of communication. Start your journey with ChatFlow today.
+                Be part of the future of communication. Start your journey with ChatKang today.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <GradientButton variant="primary" size="lg">
@@ -334,10 +341,10 @@ export default function AboutPage() {
               <div className="w-10 h-10 bg-gradient-to-r from-teal-400 to-cyan-400 rounded-xl flex items-center justify-center">
                 <MessageCircle className="h-6 w-6 text-white" />
               </div>
-              <span className="text-2xl font-bold text-gradient-teal">ChatFlow</span>
+              <span className="text-2xl font-bold text-gradient-teal">ChatKang</span>
             </div>
             <p className="text-gray-400 mb-4 text-lg">Connecting the world, sharing emotions</p>
-            <p className="text-gray-500">&copy; 2024 ChatFlow. All rights reserved.</p>
+            <p className="text-gray-500">&copy; 2025 ChatKang. All rights reserved.</p>
           </div>
         </footer>
       </div>

@@ -70,7 +70,7 @@ export default function LoginPage() {
                 <MessageCircle className="h-8 w-8 text-white" />
               </div>
               <h1 className="text-3xl font-bold text-gradient-teal mb-2">Welcome Back</h1>
-              <p className="text-gray-400">Sign in to continue to ChatFlow</p>
+              <p className="text-gray-400">Sign in to continue to ChatKang</p>
             </div>
 
             {/* Login Form */}
@@ -177,7 +177,7 @@ export default function LoginPage() {
 
           {/* Footer */}
           <div className="text-center mt-8">
-            <p className="text-gray-500 text-sm">&copy; 2024 ChatFlow. All rights reserved.</p>
+            <p className="text-gray-500 text-sm">&copy; 2025 ChatKang. All rights reserved.</p>
           </div>
         </div>
       </div>
